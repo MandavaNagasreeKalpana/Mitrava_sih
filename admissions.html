@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Excellence University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+            margin-top: -2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #FF8C00;
+        }
+
+        nav a.active {
+            color: #FF8C00;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #FF8C00;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            color: #FF8C00;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .dropdown-btn:hover {
+            color: #e07700;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #fff3e6;
+            color: #FF8C00;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            border-top: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            background: #fff3e6;
+            color: #FF8C00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Actions Section */
+        .quick-actions {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .action-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .action-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 24px;
+        }
+
+        .action-1 .action-icon { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+        .action-2 .action-icon { background: linear-gradient(135deg, #10B981, #059669); }
+        .action-3 .action-icon { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+
+        .action-card h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .action-card p {
+            color: #666;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: #FF8C00;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e07700;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FF8C00;
+            border: 2px solid #FF8C00;
+        }
+
+        .btn-secondary:hover {
+            background: #FF8C00;
+            color: white;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: #fff3e6;
+            color: #FF8C00;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Admission Categories */
+        .admission-category {
+            margin-bottom: 80px;
+        }
+
+        .category-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .category-info {
+            order: 1;
+        }
+
+        .category-image {
+            order: 2;
+            position: relative;
+        }
+
+        .category-content.reverse .category-info {
+            order: 2;
+        }
+
+        .category-content.reverse .category-image {
+            order: 1;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            gap: 16px;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .category-icon.undergraduate { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+        .category-icon.graduate { background: linear-gradient(135deg, #10B981, #059669); }
+        .category-icon.international { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+
+        .category-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .requirements-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .requirement-number {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .requirement-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .requirement-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .category-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            background: linear-gradient(135deg, rgba(255,140,0,0.1), rgba(255,165,0,0.1));
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .stat-badge {
+            position: absolute;
+            bottom: -12px;
+            right: -12px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF8C00;
+        }
+
+        .stat-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: #f8f9fa;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #FF8C00;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: calc(50% - 30px);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 60px;
+            border-left: 4px solid #FF8C00;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 60px;
+            border-right: 4px solid #FF8C00;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            background: #FF8C00;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px #FF8C00;
+        }
+
+        .timeline-date {
+            color: #FF8C00;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Application Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 32px 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .close-btn:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 32px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF8C00;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
+            margin-top: 32px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        .checkbox-group a {
+            color: #FF8C00;
+            text-decoration: none;
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            background: white;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .requirement-card {
+            background: #f8f9fa;
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+            border-top: 4px solid #FF8C00;
+        }
+
+        .requirement-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .requirement-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .requirement-card li {
+            padding: 8px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .requirement-card li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #FF8C00;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: #e07700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+
+        .contact-icon {
+            color: #FF8C00;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .category-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .category-content.reverse .category-info,
+            .category-content .category-info {
+                order: 2;
+            }
+
+            .category-content.reverse .category-image,
+            .category-content .category-image {
+                order: 1;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 20px;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding: 24px;
+            }
+
+            .category-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <div class="logo-icon">EU</div>
+                    <div class="logo-text">
+                        <h1>Excellence</h1>
+                        <p>UNIVERSITY</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav>
+                    <a href="index.html">Home</a>
+                    
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Admissions
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#undergraduate">Undergraduate</a>
+                            <a href="#graduate">Graduate</a>
+                            <a href="#international">International</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Academics
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="syllabus.html">Syllabus</a>
+                            <a href="branches.html">Branches</a>
+                            <a href="faculty.html">Faculty</a>
+                        </div>
+                    </div>
+
+                    <a href="staff.html">Staff</a>
+                    <a href="news.html">News</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+                <!-- Contact & Mobile Menu -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="contact-info">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span>(02) 2889-3415</span>
+                    </div>
+
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html">Home</a>
+                <a href="#" class="active">Admissions</a>
+                <a href="syllabus.html">Academics</a>
+                <a href="staff.html">Staff</a>
+                <a href="news.html">News</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> / <span>Admissions</span>
+                </div>
+                <h1>Start Your Journey</h1>
+                <p>Join Excellence University and become part of a community dedicated to academic excellence, innovation, and personal growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <div class="actions-grid">
+                <div class="action-card action-1" onclick="showApplicationForm()">
+                    <div class="action-icon">📝</div>
+                    <h3>Apply Now</h3>
+                    <p>Start your application process with our streamlined online form. Get started today and take the first step towards your future.</p>
+                    <button class="btn btn-primary">Begin Application</button>
+                </div>
+
+                <div class="action-card action-2">
+                    <div class="action-icon">📚</div>
+                    <h3>View Programs</h3>
+                    <p>Explore our comprehensive academic offerings and find the perfect program that matches your interests and career goals.</p>
+                    <a href="syllabus.html" class="btn btn-primary">Browse Programs</a>
+                </div>
+
+                <div class="action-card action-3">
+                    <div class="action-icon">💰</div>
+                    <h3>Financial Aid</h3>
+                    <p>Learn about scholarships, grants, and financial assistance options available to help make your education affordable.</p>
+                    <a href="#financial-aid" class="btn btn-primary">View Options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Categories -->
+    <section class="admissions-categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">ADMISSION TYPES</span>
+                <h2 class="section-title">Choose Your Path</h2>
+                <p class="section-description">Select the admission category that best fits your academic goals and background</p>
+            </div>
+
+            <!-- Undergraduate Admissions -->
+            <div class="admission-category" id="undergraduate">
+                <div class="category-content">
+                    <div class="category-info">
+                        <div class="category-header">
+                            <div class="category-icon undergraduate">UG</div>
+                            <h3 class="category-title">Undergraduate Programs</h3>
+                        </div>
+                        
+                        <ul class="requirements-list">
+                            <li class="requirement-item">
+                                <div class="requirement-number">1</div>
+                                <div class="requirement-content">
+                                    <h4>Eligibility Requirements</h4>
+                                    <p>High School Diploma or equivalent with minimum 75% aggregate marks. Subject-specific requirements vary by program.</p>
+                                </div>
+                            </li>
+                            <li class="requirement-item">
+                                <div class="requirement-number">2</div>
+                                <div class="requirement-content">
+                                    <h4>Entrance Examination</h4>
+                                    <p>Excellence University Entrance Test (EUET) or accepted national level examinations like JEE, NEET, SAT.</p>
+                                </div>
+                            </li>
+                            <li class="requirement-item">
+                                <div class="requirement-number">3</div>
+                                <div class="requirement-content">
+                                    <h4>Application Documents</h4>
+                                    <p>Official transcripts, letters of recommendation, personal statement, and standardized test scores.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="category-buttons">
+                            <button class="btn btn-primary" onclick="showApplicationForm()">Apply for Undergraduate</button>
+                            <button class="btn btn-secondary" onclick="showRequirements('undergraduate')">View Requirements</button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-image">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" alt="Undergraduate students">
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-number">15,000+</div>
+                            <div class="stat-text">Undergraduate Students</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graduate Admissions -->
+            <div class="admission-category" id="graduate">
+                <div class="category-content reverse">
+                    <div class="category-info">
+                        <div class="category-header">
+                            <div class="category-icon graduate">PG</div>
+                            <h3 class="category-title">Graduate Programs</h3>
+                        </div>
+                        
+                        <ul class="requirements-list">
+                            <li class="requirement-item">
+                                <div class="requirement-number">1</div>
+                                <div class="requirement-content">
+                                    <h4>Bachelor's Degree Required</h4>
+                                    <p>Relevant bachelor's degree with minimum 60% marks. GRE/GMAT scores required for select programs.</p>
+                                </div>
+                            </li>
+                            <li class="requirement-item">
+                                <div class="requirement-number">2</div>
+                                <div class="requirement-content">
+                                    <h4>Research Proposal</h4>
+                                    <p>Submit a detailed research proposal for PhD programs and research-based Master's degrees.</p>
+                                </div>
+                            </li>
+                            <li class="requirement-item">
+                                <div class="requirement-number">3</div>
+                                <div class="requirement-content">
+                                    <h4>Interview Process</h4>
+                                    <p>Personal interview with faculty committee. Online interviews available for international students.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="category-buttons">
+                            <button class="btn btn-primary" onclick="showApplicationForm()">Apply for Graduate</button>
+                            <button class="btn btn-secondary" onclick="showRequirements('graduate')">View Requirements</button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-image">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=400&fit=crop" alt="Graduate students">
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-text">Job Placement Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Admissions -->
+            <div class="admission-category" id="international">
+                <div class="category-content">
+                    <div class="category-info">
+                        <div class="category-header">
+                            <div class="category-icon international">🌍</div>
+                            <h3 class="category-title">International Students</h3>
+                        </div>
+                        
+                        <ul class="requirements-list">
+                            <li class="requirement-item">
+                                <div class="requirement-number">1</div>
+                                <div class="requirement-content">
+                                    <h4>English Proficiency</h4>
+                                    <p>IELTS (6.5+), TOEFL (79+), or equivalent English language certification required for non-native speakers.</p>
+                                </div>
+                            </li>
+                            <li class="requirement-item">
+                                <div class="requirement-number">2</div>
+                                <div class="requirement-content">
+                                    <h4>Visa Support</h4>
+                                    <p>Complete student visa assistance and documentation support provided by our international office.</p>
+                                </div>
+                            </li>
+                            <li class="requirement-item">
+                                <div class="requirement-number">3</div>
+                                <div class="requirement-content">
+                                    <h4>Scholarships Available</h4>
+                                    <p>Merit-based scholarships and financial aid programs specifically designed for international students.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="category-buttons">
+                            <button class="btn btn-primary" onclick="showApplicationForm()">International Application</button>
+                            <button class="btn btn-secondary" onclick="showRequirements('international')">Visa Information</button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-image">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&h=400&fit=crop" alt="International students">
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-text">Countries Represented</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Timeline -->
+    <section class="timeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">IMPORTANT DATES</span>
+                <h2 class="section-title">Application Timeline</h2>
+                <p class="section-description">Key dates for the 2026 academic year - don't miss these important deadlines</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">October 1, 2025</div>
+                        <h3 class="timeline-title">Applications Open</h3>
+                        <p class="timeline-description">Online application portal opens for all programs. Early preparation recommended for all applicants.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">December 15, 2025</div>
+                        <h3 class="timeline-title">Early Decision Deadline</h3>
+                        <p class="timeline-description">Submit early decision applications with all required documents, transcripts, and test scores.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 15, 2026</div>
+                        <h3 class="timeline-title">Early Decision Results</h3>
+                        <p class="timeline-description">Early decision admission results announced via email and student portal access.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">March 15, 2026</div>
+                        <h3 class="timeline-title">Regular Decision Deadline</h3>
+                        <p class="timeline-description">Final deadline for all regular admission applications and supporting materials.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 1, 2026</div>
+                        <h3 class="timeline-title">Admission Results</h3>
+                        <p class="timeline-description">Regular admission decisions released. Wait list notifications and scholarship awards announced.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 1, 2026</div>
+                        <h3 class="timeline-title">Enrollment Deadline</h3>
+                        <p class="timeline-description">Final deadline for enrollment confirmation and deposit payment to secure your seat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements" id="financial-aid">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">SUPPORT</span>
+                <h2 class="section-title">Financial Aid & Requirements</h2>
+                <p class="section-description">Making quality education accessible through various financial support options</p>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <h3>Merit Scholarships</h3>
+                    <ul>
+                        <li>Academic Excellence Award - Up to 50% tuition</li>
+                        <li>Leadership Scholarship - $5,000 annually</li>
+                        <li>Research Grant - $3,000 per project</li>
+                        <li>Sports Achievement Award - Full tuition</li>
+                        <li>Community Service Grant - $2,000 annually</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h3>Need-Based Aid</h3>
+                    <ul>
+                        <li>Federal Pell Grant - Up to $6,000</li>
+                        <li>State Grant Program - Varies by state</li>
+                        <li>University Grant - Up to 25% tuition</li>
+                        <li>Work-Study Program - Part-time employment</li>
+                        <li>Emergency Financial Assistance</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card">
+                    <h3>International Aid</h3>
+                    <ul>
+                        <li>International Merit Award - Up to 30% tuition</li>
+                        <li>Cultural Exchange Scholarship - $4,000</li>
+                        <li>STEM Excellence Grant - $3,500 annually</li>
+                        <li>Alumni Recommendation Award - $2,500</li>
+                        <li>Country-Specific Partnerships</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Start Your Application</h2>
+                <button class="close-btn" onclick="hideApplicationForm()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="applicationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="programLevel">Program Level <span class="required">*</span></label>
+                            <select id="programLevel" name="programLevel" required>
+                                <option value="">Select Level</option>
+                                <option value="undergraduate">Undergraduate</option>
+                                <option value="graduate">Graduate (Master's)</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredProgram">Preferred Program</label>
+                            <select id="preferredProgram" name="preferredProgram">
+                                <option value="">Select Program</option>
+                                <option value="computer-science">Computer Science & Engineering</option>
+                                <option value="business">Business Administration</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="medicine">Medical Sciences</option>
+                                <option value="arts">Liberal Arts</option>
+                                <option value="psychology">Psychology</option>
+                                <option value="economics">Economics</option>
+                                <option value="mathematics">Mathematics</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="startDate">Expected Start Date <span class="required">*</span></label>
+                            <select id="startDate" name="startDate" required>
+                                <option value="">Select Term</option>
+                                <option value="fall-2026">Fall 2026</option>
+                                <option value="spring-2027">Spring 2027</option>
+                                <option value="summer-2027">Summer 2027</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality">Nationality</label>
+                            <select id="nationality" name="nationality">
+                                <option value="">Select Country</option>
+                                <option value="us">United States</option>
+                                <option value="ca">Canada</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="in">India</option>
+                                <option value="cn">China</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="previousEducation">Previous Education Background</label>
+                        <textarea id="previousEducation" name="previousEducation" placeholder="Please describe your educational background, including school name, degree, and GPA if applicable..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personalStatement">Personal Statement</label>
+                        <textarea id="personalStatement" name="personalStatement" placeholder="Tell us about yourself, your goals, and why you want to study at Excellence University..."></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            I agree to the <a href="terms.html" target="_blank">Terms and Conditions</a> and 
+                            <a href="privacy.html" target="_blank">Privacy Policy</a> <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">
+                            I would like to receive updates about programs, events, and news from Excellence University
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="hideApplicationForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- University Info -->
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-icon">EU</div>
+                        <div class="logo-text">
+                            <h1 style="color: white; font-size: 20px;">Excellence</h1>
+                            <p style="color: #ccc; margin-top: -2px;">UNIVERSITY</p>
+                        </div>
+                    </div>
+                    <p>Shaping minds, building futures. Excellence University is committed to providing world-class education and fostering innovation for the next generation of leaders.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                        <li><a href="alumni.html">Alumni</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admissions -->
+                <div class="footer-section">
+                    <h3>Admissions</h3>
+                    <ul>
+                        <li><a href="#undergraduate">Undergraduate</a></li>
+                        <li><a href="#graduate">Graduate</a></li>
+                        <li><a href="#international">International</a></li>
+                        <li><a href="#financial-aid">Financial Aid</a></li>
+                        <li><a href="visit.html">Visit Campus</a></li>
+                        <li><a href="apply.html">Apply Online</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <div>123 University Avenue</div>
+                            <div>Excellence City, EC 12345</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>(02) 2889-3415</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>admissions@excellenceuniversity.edu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p style="color: #ccc; font-size: 14px;">&copy; 2025 Excellence University. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="accessibility.html">Accessibility</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        }
+
+        // Application form modal
+        function showApplicationForm() {
+            document.getElementById('applicationModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideApplicationForm() {
+            document.getElementById('applicationModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show requirements (placeholder function)
+        function showRequirements(type) {
+            alert(`Detailed ${type} requirements will be displayed here. This would typically open a detailed requirements page or modal.`);
+        }
+
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#e5e5e5';
+                }
+            });
+            
+            if (isValid) {
+                // In a real application, this would submit to a server
+                alert('Application submitted successfully! You will receive a confirmation email shortly.');
+                hideApplicationForm();
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('applicationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideApplicationForm();
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (mobileMenu && mobileMenuBtn) {
+                if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            }
+        });
+
+        // Intersection Observer for animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with fade-in class
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Observe timeline items
+            document.querySelectorAll('.timeline-item').forEach(el => {
+                el.classList.add('fade-in');
+                observer.observe(el);
+            });
+        }
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupScrollAnimations();
+        });
+
+        // Enhanced mobile navigation
+        function handleResize() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (window.innerWidth > 968) {
+                mobileMenu.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // Program level change handler
+        document.getElementById('programLevel').addEventListener('change', function() {
+            const preferredProgram = document.getElementById('preferredProgram');
+            
+            // You could customize available programs based on level
+            if (this.value === 'phd') {
+                // Add PhD-specific programs if needed
+            }
+        });
+
+        // Form field validation on blur
+        document.querySelectorAll('input[required], select[required]').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.style.borderColor = '#e74c3c';
+                } else {
+                    this.style.borderColor = '#10B981';
+                }
+            });
+        });
+
+        // Email validation
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) {
+                this.style.borderColor = '#e74c3c';
+            } else {
+                this.style.borderColor = '#10B981';
+            }
+        });
+    </script>
+</body>
+</html>
