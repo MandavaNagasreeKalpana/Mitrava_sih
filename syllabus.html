@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Programs & Syllabus - Excellence University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+            margin-top: -2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #FF8C00;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            color: #FF8C00;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .dropdown-btn:hover {
+            color: #e07700;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #fff3e6;
+            color: #FF8C00;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            border-top: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            background: #fff3e6;
+            color: #FF8C00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: #fff3e6;
+            color: #FF8C00;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Program Filter */
+        .program-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            background: white;
+            border: 2px solid #e5e5e5;
+            color: #666;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #FF8C00;
+            border-color: #FF8C00;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Programs Grid */
+        .programs {
+            background: #f8f9fa;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .program-header {
+            padding: 24px 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .program-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .program-icon.engineering { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+        .program-icon.business { background: linear-gradient(135deg, #10B981, #059669); }
+        .program-icon.medical { background: linear-gradient(135deg, #EF4444, #DC2626); }
+        .program-icon.arts { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+        .program-icon.science { background: linear-gradient(135deg, #F59E0B, #D97706); }
+        .program-icon.technology { background: linear-gradient(135deg, #06B6D4, #0891B2); }
+
+        .program-info {
+            flex: 1;
+        }
+
+        .program-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .program-degree {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .program-content {
+            padding: 0 24px 24px;
+        }
+
+        .program-stats {
+            display: flex;
+            gap: 24px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF8C00;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .program-description {
+            color: #666;
+            margin: 16px 0;
+            line-height: 1.6;
+        }
+
+        .program-subjects {
+            margin: 20px 0;
+        }
+
+        .subjects-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .subjects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .subject-tag {
+            background: #fff3e6;
+            color: #FF8C00;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .program-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: #FF8C00;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e07700;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FF8C00;
+            border: 2px solid #FF8C00;
+        }
+
+        .btn-secondary:hover {
+            background: #FF8C00;
+            color: white;
+        }
+
+        /* Program Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 32px 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-program-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .close-btn:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 32px;
+        }
+
+        .modal-tabs {
+            display: flex;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 32px;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            color: #FF8C00;
+            border-bottom-color: #FF8C00;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .curriculum-year {
+            margin-bottom: 32px;
+        }
+
+        .year-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #FF8C00;
+        }
+
+        .semester {
+            margin-bottom: 24px;
+        }
+
+        .semester-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .subject-item {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subject-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .subject-credits {
+            color: #FF8C00;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .requirements-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .requirement-icon {
+            color: #FF8C00;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .requirement-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .requirement-content p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #FF8C00;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: #e07700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+
+        .contact-icon {
+            color: #FF8C00;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .program-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 200px;
+                text-align: center;
+            }
+
+            .modal-content {
+                margin: 10px;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding: 24px;
+            }
+
+            .modal-tabs {
+                flex-wrap: wrap;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">EU</div>
+                    <div class="logo-text">
+                        <h1>Excellence</h1>
+                        <p>UNIVERSITY</p>
+                    </div>
+                </div>
+
+                <nav>
+                    <a href="index.html">Home</a>
+                    
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Admissions
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="admissions.html#undergraduate">Undergraduate</a>
+                            <a href="admissions.html#graduate">Graduate</a>
+                            <a href="admissions.html#international">International</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Academics
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="active">Syllabus</a>
+                            <a href="branches.html">Branches</a>
+                            <a href="faculty.html">Faculty</a>
+                        </div>
+                    </div>
+
+                    <a href="staff.html">Staff</a>
+                    <a href="news.html">News</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="contact-info">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span>(02) 2889-3415</span>
+                    </div>
+
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html">Home</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="#" class="active">Academics</a>
+                <a href="staff.html">Staff</a>
+                <a href="news.html">News</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Academic Programs</span>
+            </div>
+            <h1>Academic Programs</h1>
+            <p>Explore our comprehensive range of undergraduate and graduate programs designed to prepare you for success in your chosen field.</p>
+        </div>
+    </section>
+
+    <!-- Program Filters -->
+    <section style="padding: 40px 0;">
+        <div class="container">
+            <div class="program-filters">
+                <button class="filter-btn active" data-filter="all">All Programs</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="medical">Medical</button>
+                <button class="filter-btn" data-filter="arts">Arts & Humanities</button>
+                <button class="filter-btn" data-filter="science">Science</button>
+                <button class="filter-btn" data-filter="technology">Technology</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <div class="programs-grid">
+                <!-- Computer Science Program -->
+                <div class="program-card" data-category="technology engineering" onclick="showProgramDetail('computer-science')">
+                    <div class="program-header">
+                        <div class="program-icon technology">💻</div>
+                        <div class="program-info">
+                            <h3 class="program-title">Computer Science & Engineering</h3>
+                            <p class="program-degree">Bachelor of Technology (B.Tech) • 4 Years</p>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-stats">
+                            <div class="stat">
+                                <div class="stat-number">160</div>
+                                <div class="stat-label">Credits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Semesters</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">95%</div>
+                                <div class="stat-label">Placement</div>
+                            </div>
+                        </div>
+                        <p class="program-description">Master programming, algorithms, data structures, and software engineering with cutting-edge curriculum covering AI, machine learning, and web development.</p>
+                        
+                        <div class="program-subjects">
+                            <h4 class="subjects-title">Core Subjects</h4>
+                            <div class="subjects-list">
+                                <span class="subject-tag">Data Structures</span>
+                                <span class="subject-tag">Algorithms</span>
+                                <span class="subject-tag">Database Systems</span>
+                                <span class="subject-tag">Machine Learning</span>
+                                <span class="subject-tag">Web Development</span>
+                                <span class="subject-tag">Software Engineering</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); showProgramDetail('computer-science')">View Curriculum</button>
+                            <a href="admissions.html" class="btn btn-secondary" onclick="event.stopPropagation()">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Administration Program -->
+                <div class="program-card" data-category="business" onclick="showProgramDetail('business-admin')">
+                    <div class="program-header">
+                        <div class="program-icon business">💼</div>
+                        <div class="program-info">
+                            <h3 class="program-title">Business Administration</h3>
+                            <p class="program-degree">Master of Business Administration (MBA) • 2 Years</p>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-stats">
+                            <div class="stat">
+                                <div class="stat-number">120</div>
+                                <div class="stat-label">Credits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Semesters</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Placement</div>
+                            </div>
+                        </div>
+                        <p class="program-description">Develop leadership skills, strategic thinking, and business acumen with specializations in finance, marketing, operations, and entrepreneurship.</p>
+                        
+                        <div class="program-subjects">
+                            <h4 class="subjects-title">Core Subjects</h4>
+                            <div class="subjects-list">
+                                <span class="subject-tag">Strategic Management</span>
+                                <span class="subject-tag">Financial Analysis</span>
+                                <span class="subject-tag">Marketing Strategy</span>
+                                <span class="subject-tag">Operations Management</span>
+                                <span class="subject-tag">Leadership</span>
+                                <span class="subject-tag">Business Ethics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); showProgramDetail('business-admin')">View Curriculum</button>
+                            <a href="admissions.html" class="btn btn-secondary" onclick="event.stopPropagation()">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Sciences Program -->
+                <div class="program-card" data-category="medical" onclick="showProgramDetail('medical')">
+                    <div class="program-header">
+                        <div class="program-icon medical">⚕️</div>
+                        <div class="program-info">
+                            <h3 class="program-title">Medical Sciences</h3>
+                            <p class="program-degree">Bachelor of Medicine (MBBS) • 5.5 Years</p>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-stats">
+                            <div class="stat">
+                                <div class="stat-number">300</div>
+                                <div class="stat-label">Credits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">11</div>
+                                <div class="stat-label">Semesters</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Placement</div>
+                            </div>
+                        </div>
+                        <p class="program-description">Comprehensive medical education with clinical rotations, research opportunities, and hands-on experience in state-of-the-art medical facilities.</p>
+                        
+                        <div class="program-subjects">
+                            <h4 class="subjects-title">Core Subjects</h4>
+                            <div class="subjects-list">
+                                <span class="subject-tag">Anatomy</span>
+                                <span class="subject-tag">Physiology</span>
+                                <span class="subject-tag">Pharmacology</span>
+                                <span class="subject-tag">Pathology</span>
+                                <span class="subject-tag">Internal Medicine</span>
+                                <span class="subject-tag">Surgery</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); showProgramDetail('medical')">View Curriculum</button>
+                            <a href="admissions.html" class="btn btn-secondary" onclick="event.stopPropagation()">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mechanical Engineering Program -->
+                <div class="program-card" data-category="engineering" onclick="showProgramDetail('mechanical-engineering')">
+                    <div class="program-header">
+                        <div class="program-icon engineering">⚙️</div>
+                        <div class="program-info">
+                            <h3 class="program-title">Mechanical Engineering</h3>
+                            <p class="program-degree">Bachelor of Technology (B.Tech) • 4 Years</p>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-stats">
+                            <div class="stat">
+                                <div class="stat-number">160</div>
+                                <div class="stat-label">Credits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Semesters</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">92%</div>
+                                <div class="stat-label">Placement</div>
+                            </div>
+                        </div>
+                        <p class="program-description">Design, analyze, and manufacture mechanical systems with focus on automation, robotics, and sustainable engineering practices.</p>
+                        
+                        <div class="program-subjects">
+                            <h4 class="subjects-title">Core Subjects</h4>
+                            <div class="subjects-list">
+                                <span class="subject-tag">Thermodynamics</span>
+                                <span class="subject-tag">Fluid Mechanics</span>
+                                <span class="subject-tag">Machine Design</span>
+                                <span class="subject-tag">Manufacturing</span>
+                                <span class="subject-tag">CAD/CAM</span>
+                                <span class="subject-tag">Robotics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); showProgramDetail('mechanical-engineering')">View Curriculum</button>
+                            <a href="admissions.html" class="btn btn-secondary" onclick="event.stopPropagation()">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Psychology Program -->
+                <div class="program-card" data-category="arts" onclick="showProgramDetail('psychology')">
+                    <div class="program-header">
+                        <div class="program-icon arts">🧠</div>
+                        <div class="program-info">
+                            <h3 class="program-title">Psychology</h3>
+                            <p class="program-degree">Bachelor of Arts (BA) • 3 Years</p>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-stats">
+                            <div class="stat">
+                                <div class="stat-number">120</div>
+                                <div class="stat-label">Credits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">6</div>
+                                <div class="stat-label">Semesters</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">88%</div>
+                                <div class="stat-label">Placement</div>
+                            </div>
+                        </div>
+                        <p class="program-description">Understand human behavior, cognitive processes, and mental health with practical training in counseling and research methodology.</p>
+                        
+                        <div class="program-subjects">
+                            <h4 class="subjects-title">Core Subjects</h4>
+                            <div class="subjects-list">
+                                <span class="subject-tag">Cognitive Psychology</span>
+                                <span class="subject-tag">Social Psychology</span>
+                                <span class="subject-tag">Abnormal Psychology</span>
+                                <span class="subject-tag">Research Methods</span>
+                                <span class="subject-tag">Counseling</span>
+                                <span class="subject-tag">Neuroscience</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); showProgramDetail('psychology')">View Curriculum</button>
+                            <a href="admissions.html" class="btn btn-secondary" onclick="event.stopPropagation()">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science Program -->
+                <div class="program-card" data-category="science technology" onclick="showProgramDetail('data-science')">
+                    <div class="program-header">
+                        <div class="program-icon science">📊</div>
+                        <div class="program-info">
+                            <h3 class="program-title">Data Science</h3>
+                            <p class="program-degree">Master of Science (MS) • 2 Years</p>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-stats">
+                            <div class="stat">
+                                <div class="stat-number">72</div>
+                                <div class="stat-label">Credits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Semesters</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">96%</div>
+                                <div class="stat-label">Placement</div>
+                            </div>
+                        </div>
+                        <p class="program-description">Extract insights from big data using statistical analysis, machine learning, and visualization techniques for data-driven decision making.</p>
+                        
+                        <div class="program-subjects">
+                            <h4 class="subjects-title">Core Subjects</h4>
+                            <div class="subjects-list">
+                                <span class="subject-tag">Statistics</span>
+                                <span class="subject-tag">Python/R</span>
+                                <span class="subject-tag">Machine Learning</span>
+                                <span class="subject-tag">Big Data Analytics</span>
+                                <span class="subject-tag">Data Visualization</span>
+                                <span class="subject-tag">Deep Learning</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-actions">
+                            <button class="btn btn-primary" onclick="event.stopPropagation(); showProgramDetail('data-science')">View Curriculum</button>
+                            <a href="admissions.html" class="btn btn-secondary" onclick="event.stopPropagation()">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Detail Modal -->
+    <div class="modal" id="programModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-program-info">
+                    <div class="program-icon" id="modalIcon">💻</div>
+                    <div>
+                        <h2 id="modalTitle">Computer Science & Engineering</h2>
+                        <p id="modalDegree">Bachelor of Technology (B.Tech) • 4 Years</p>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="hideProgramDetail()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" data-tab="curriculum">Curriculum</button>
+                    <button class="tab-btn" data-tab="requirements">Requirements</button>
+                    <button class="tab-btn" data-tab="career">Career Prospects</button>
+                </div>
+
+                <div class="tab-content active" id="curriculum-tab">
+                    <div id="curriculum-content">
+                        <!-- Dynamic curriculum content will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="tab-content" id="requirements-tab">
+                    <ul class="requirements-list" id="requirements-content">
+                        <!-- Dynamic requirements content will be loaded here -->
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="career-tab">
+                    <div id="career-content">
+                        <!-- Dynamic career content will be loaded here -->
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 32px;">
+                    <a href="admissions.html" class="btn btn-primary" style="margin-right: 16px;">Apply for This Program</a>
+                    <button class="btn btn-secondary" onclick="hideProgramDetail()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-icon">EU</div>
+                        <div class="logo-text">
+                            <h1 style="color: white; font-size: 20px;">Excellence</h1>
+                            <p style="color: #ccc; margin-top: -2px;">UNIVERSITY</p>
+                        </div>
+                    </div>
+                    <p>Shaping minds, building futures. Excellence University is committed to providing world-class education and fostering innovation for the next generation of leaders.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Academic Programs</h3>
+                    <ul>
+                        <li><a href="#computer-science">Computer Science</a></li>
+                        <li><a href="#business">Business Administration</a></li>
+                        <li><a href="#engineering">Engineering</a></li>
+                        <li><a href="#medical">Medical Sciences</a></li>
+                        <li><a href="#arts">Arts & Humanities</a></li>
+                        <li><a href="#science">Science & Technology</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <div>123 University Avenue</div>
+                            <div>Excellence City, EC 12345</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>(02) 2889-3415</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>academics@excellenceuniversity.edu</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="color: #ccc; font-size: 14px;">&copy; 2025 Excellence University. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="accessibility.html">Accessibility</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script>
+/* ---------------------------
+   Final behaviour & polish script
+   Paste this AFTER the existing script block (or replace the incomplete script)
+   --------------------------- */
+
+/* Safe helper to query */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+/* 1) Tab switching inside modal */
+function initModalTabs() {
+  const tabBtns = $$('.tab-btn');
+  function switchTo(tabName, clickedBtn) {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    $$('.tab-content').forEach(tc => tc.classList.remove('active'));
+    const tabEl = $(`#${tabName}-tab`);
+    if (tabEl) tabEl.classList.add('active');
+
+    // Manage focus for accessibility
+    const activePanel = tabEl;
+    if (activePanel) {
+      const firstFocusable = activePanel.querySelector('button, a, input, textarea, [tabindex]:not([tabindex="-1"])');
+      if (firstFocusable) firstFocusable.focus();
+    }
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const tab = this.dataset.tab;
+      switchTo(tab, this);
+    });
+  });
+}
+
+/* 2) Close modal, overlay clicks, ESC key */
+function initModalClose() {
+  const modal = document.getElementById('programModal');
+
+  // close on overlay click (but not on clicks inside modal content)
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) hideProgramDetail();
+  });
+
+  // close on ESC
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (modal.style.display === 'block') {
+        hideProgramDetail();
+      }
+      // if mobile menu open, close it
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu && mobileMenu.style.display === 'block') {
+        mobileMenu.style.display = 'none';
+      }
+    }
+  });
+}
+
+/* 3) Ensure modal close button also returns focus to previously focused element */
+let lastFocusedElementBeforeModal = null;
+const originalShowProgramDetail = window.showProgramDetail || function(id){};
+window.showProgramDetail = function(programId) {
+  // store focus
+  lastFocusedElementBeforeModal = document.activeElement;
+  // call original if exists (your file already defined a showProgramDetail),
+  // but if original is defined earlier, we want to use that implementation.
+  if (typeof originalShowProgramDetail === 'function' && originalShowProgramDetail.toString().includes('programData')) {
+    // the original file already defines showProgramDetail; call it
+    originalShowProgramDetail(programId);
+  } else {
+    // if not present, fallback (shouldn't happen because file has programData)
+    console.warn('Original showProgramDetail not found — ensure programData exists.');
+  }
+  // set focus to close button for accessibility
+  const closeBtn = document.querySelector('.close-btn');
+  if (closeBtn) closeBtn.focus();
+};
+
+const originalHideProgramDetail = window.hideProgramDetail || function(){};
+window.hideProgramDetail = function() {
+  if (typeof originalHideProgramDetail === 'function' && originalHideProgramDetail.toString().includes('document.getElementById')) {
+    originalHideProgramDetail();
+  } else {
+    // fallback: hide modal if something else didn't
+    const modal = document.getElementById('programModal');
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  }
+  // return focus to last focused element
+  if (lastFocusedElementBeforeModal && typeof lastFocusedElementBeforeModal.focus === 'function') {
+    lastFocusedElementBeforeModal.focus();
+    lastFocusedElementBeforeModal = null;
+  }
+};
+
+/* 4) Mobile dropdown toggles (improved) */
+function initDropdownsForMobile() {
+  $$('.dropdown-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      // stop default & toggle active class
+      e.preventDefault();
+      const dropdown = this.closest('.dropdown');
+      dropdown.classList.toggle('active');
+      // close other dropdowns
+      $$('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+      });
+    });
+  });
+
+  // close when clicking outside dropdowns
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
+      $$('.dropdown').forEach(d => d.classList.remove('active'));
+    }
+  });
+}
+
+/* 5) Ensure mobile menu closes on resize > threshold */
+function initResizeHandler() {
+  window.addEventListener('resize', function() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (!mobileMenu) return;
+    if (window.innerWidth > 968) {
+      mobileMenu.style.display = 'none';
+    }
+  });
+}
+
+/* 6) Initialize program filters state on page load (trigger the active filter) */
+function initFiltersOnLoad() {
+  const activeBtn = document.querySelector('.filter-btn.active');
+  if (activeBtn) {
+    activeBtn.click();
+  } else {
+    // fallback: show all
+    $$('.program-card').forEach(c => c.style.display = 'block');
+  }
+}
+
+/* 7) Smooth scroll for intra-page anchors (keeps your existing behaviour but adds focus handling) */
+function initSmoothAnchors() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      // if target exists on same page
+      const href = this.getAttribute('href');
+      if (href && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // set focus for accessibility
+          setTimeout(() => {
+            if (typeof target.focus === 'function') target.focus({preventScroll: true});
+          }, 600);
+        }
+      }
+    });
+  });
+}
+
+/* 8) Small ARIA / accessibility improvements */
+function addAriaAttributes() {
+  const modal = document.getElementById('programModal');
+  if (modal) {
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+  const closeBtn = document.querySelector('.close-btn');
+  if (closeBtn) {
+    closeBtn.setAttribute('aria-label', 'Close program details');
+  }
+  $$('.tab-btn').forEach(b => {
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-selected', b.classList.contains('active') ? 'true' : 'false');
+  });
+  $$('.tab-content').forEach(tc => {
+    tc.setAttribute('role', 'tabpanel');
+  });
+}
+
+/* When modal opens/closes update aria-hidden */
+const programModalObserver = new MutationObserver(mutations => {
+  mutations.forEach(m => {
+    if (m.attributeName === 'style') {
+      const modal = document.getElementById('programModal');
+      if (!modal) return;
+      const hidden = modal.style.display !== 'block';
+      modal.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+    }
+  });
+});
+const modalNode = document.getElementById('programModal');
+if (modalNode) programModalObserver.observe(modalNode, { attributes: true });
+
+/* 9) Preload important images (same pattern you used) */
+function preloadImages() {
+  const images = [
+    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop&crop=center',
+    'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=250&fit=crop',
+    'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop',
+    'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=250&fit=crop'
+  ];
+  images.forEach(src => { const i = new Image(); i.src = src; });
+}
+
+/* 10) Initialize everything */
+document.addEventListener('DOMContentLoaded', function () {
+  initModalTabs();
+  initModalClose();
+  initDropdownsForMobile();
+  initResizeHandler();
+  initFiltersOnLoad();
+  initSmoothAnchors();
+  addAriaAttributes();
+  preloadImages();
+
+  // Also ensure filter button keyboard accessibility
+  $$('.filter-btn').forEach(btn => {
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+    btn.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // Make sure clicking the modal close returns focus (already handled in hideProgramDetail)
+  const closeBtn = document.querySelector('.close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      hideProgramDetail();
+    });
+  }
+
+  // Make mobile "hamburger" keyboard accessible
+  const mobileBtn = document.querySelector('.mobile-menu-btn');
+  if (mobileBtn) {
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    mobileBtn.addEventListener('click', function () {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const opened = mobileMenu.style.display === 'block';
+      mobileBtn.setAttribute('aria-expanded', opened ? 'false' : 'true');
+    });
+  }
+});
+</script>
