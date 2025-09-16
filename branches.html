@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branches - Excellence University</title>
+    <style>
+        /* Use the same header, footer, and general styles from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles (same as index.html) */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+            margin-top: -2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #FF8C00;
+        }
+
+        nav a.active {
+            color: #FF8C00;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #FF8C00;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .dropdown-btn:hover {
+            color: #FF8C00;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #fff3e6;
+            color: #FF8C00;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            border-top: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            background: #fff3e6;
+            color: #FF8C00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Branches Section */
+        .branches-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: #fff3e6;
+            color: #FF8C00;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .branch-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .branch-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .branch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .branch-card:hover .branch-image img {
+            transform: scale(1.05);
+        }
+
+        .branch-content {
+            padding: 24px;
+        }
+
+        .branch-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .branch-location {
+            color: #FF8C00;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .branch-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .branch-features li {
+            padding: 8px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .branch-features li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        .branch-link {
+            color: #FF8C00;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
+        }
+
+        .branch-link:hover {
+            gap: 10px;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer (same as index.html) */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #FF8C00;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: #e07700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+
+        .contact-icon {
+            color: #FF8C00;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <div class="logo-icon">EU</div>
+                    <div class="logo-text">
+                        <h1>Excellence</h1>
+                        <p>UNIVERSITY</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav>
+                    <a href="index.html">Home</a>
+                    
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Admissions
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="admissions.html#undergraduate">Undergraduate</a>
+                            <a href="admissions.html#graduate">Graduate</a>
+                            <a href="admissions.html#international">International</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Academics
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="syllabus.html">Syllabus</a>
+                            <a href="#" class="active">Branches</a>
+                            <a href="faculty.html">Faculty</a>
+                        </div>
+                    </div>
+
+                    <a href="staff.html">Staff</a>
+                    <a href="news.html">News</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+                <!-- Contact & Mobile Menu -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="contact-info">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span>(02) 2889-3415</span>
+                    </div>
+
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html">Home</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="syllabus.html">Academics</a>
+                <a href="#" class="active">Branches</a>
+                <a href="staff.html">Staff</a>
+                <a href="news.html">News</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Branches</span>
+            </div>
+            <h1>Our Campus Locations</h1>
+            <p>Discover Excellence University's campuses across the country, each offering unique opportunities and facilities</p>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section class="branches-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">CAMPUSES</span>
+                <h2 class="section-title">University Branches</h2>
+                <p class="section-description">Explore our diverse campuses, each with its own unique character and specialized programs</p>
+            </div>
+
+            <div class="branches-grid">
+                <!-- Main Campus -->
+                <div class="branch-card fade-in">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=200&fit=crop" alt="Main Campus">
+                    </div>
+                    <div class="branch-content">
+                        <h3 class="branch-title">Main Campus</h3>
+                        <div class="branch-location">
+                            📍 Excellence City, EC 12345
+                        </div>
+                        <ul class="branch-features">
+                            <li>All academic programs available</li>
+                            <li>Central research facilities</li>
+                            <li>Student housing options</li>
+                            <li>Sports and recreation complex</li>
+                            <li>Main administrative offices</li>
+                        </ul>
+                        <a href="#" class="branch-link">Explore Campus →</a>
+                    </div>
+                </div>
+
+                <!-- Technology Campus -->
+                <div class="branch-card fade-in">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=200&fit=crop" alt="Technology Campus">
+                    </div>
+                    <div class="branch-content">
+                        <h3 class="branch-title">Technology Campus</h3>
+                        <div class="branch-location">
+                            📍 Innovation District, ID 67890
+                        </div>
+                        <ul class="branch-features">
+                            <li>Engineering and Computer Science programs</li>
+                            <li>Advanced research laboratories</li>
+                            <li>Industry partnership programs</li>
+                            <li>Startup incubation center</li>
+                            <li>Tech library with digital resources</li>
+                        </ul>
+                        <a href="#" class="branch-link">Explore Campus →</a>
+                    </div>
+                </div>
+
+                <!-- Medical Sciences Campus -->
+                <div class="branch-card fade-in">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=200&fit=crop" alt="Medical Sciences Campus">
+                    </div>
+                    <div class="branch-content">
+                        <h3 class="branch-title">Medical Sciences Campus</h3>
+                        <div class="branch-location">
+                            📍 Health Center, HC 24680
+                        </div>
+                        <ul class="branch-features">
+                            <li>Medical and health sciences programs</li>
+                            <li>Teaching hospital facilities</li>
+                            <li>Research centers for medical studies</li>
+                            <li>Clinical simulation labs</li>
+                            <li>Partnerships with healthcare providers</li>
+                        </ul>
+                        <a href="#" class="branch-link">Explore Campus →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">LOCATIONS</span>
+                <h2 class="section-title">Find Our Campuses</h2>
+                <p class="section-description">All our campuses are easily accessible with excellent transportation links</p>
+            </div>
+
+            <div class="map-container fade-in">
+                <!-- Replace with actual Google Maps embed code showing all campus locations -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123456.78901234567!2d-122.4194155!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjciTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- University Info -->
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-icon">EU</div>
+                        <div class="logo-text">
+                            <h1 style="color: white; font-size: 20px;">Excellence</h1>
+                            <p style="color: #ccc; margin-top: -2px;">UNIVERSITY</p>
+                        </div>
+                    </div>
+                    <p>Shaping minds, building futures. Excellence University is committed to providing world-class education and fostering innovation for the next generation of leaders.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                    </ul>
+                </div>
+
+                <!-- Campuses -->
+                <div class="footer-section">
+                    <h3>Our Campuses</h3>
+                    <ul>
+                        <li><a href="#">Main Campus</a></li>
+                        <li><a href="#">Technology Campus</a></li>
+                        <li><a href="#">Medical Sciences Campus</a></li>
+                        <li><a href="#">Business School</a></li>
+                        <li><a href="#">Arts & Design Campus</a></li>
+                        <li><a href="#">View All Locations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <div>123 University Avenue</div>
+                            <div>Excellence City, EC 12345</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>(02) 2889-3415</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>info@excellenceuniversity.edu</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <span>www.excellenceuniversity.edu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p style="color: #ccc; font-size: 14px;">&copy; 2025 Excellence University. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="accessibility.html">Accessibility</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        }
+
+        // Fade-in animation on scroll
+        function checkFade() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check and scroll event listener
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+    </script>
+</body>
+</html>
